@@ -17,7 +17,7 @@ class equipasController extends Controller
       }  
     public function show(request $request){
         $idequipa = $request->numero;
-        $equipa = equipas::where('id_equipa', $idequipa)->first();
+        $equipa = equipas::where('id_equipa', $idequipa)->with('jogadores')->first();
         return view('equipas.show', [
             'equipa'=>$equipa
         ]);
